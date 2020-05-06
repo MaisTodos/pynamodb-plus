@@ -1,10 +1,10 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 with open("README.md") as readme_file:
     README = readme_file.read()
 
 setup(
-    name="pynamodb-plus", # Replace with your own username
+    name="pynamodb-plus",
     version="0.0.1",
     author="Murilo Viana",
     author_email="murilo.vianamo@gmail.com",
@@ -16,6 +16,8 @@ setup(
     zip_safe=False,
     keywords="python pynamodb plus",
     license="MIT License",
+    install_requires=["pynamodb>=4.3.0"],
+    python_requires=">=3.7",
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
