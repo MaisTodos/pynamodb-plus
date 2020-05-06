@@ -5,7 +5,7 @@ with open("README.md") as readme_file:
 
 setup(
     name="pynamodb-plus",
-    version="0.0.1",
+    version="0.0.2",
     author="Murilo Viana",
     author_email="murilo.vianamo@gmail.com",
     description="Python 3 library with some utilities to use with PynamoDB",
