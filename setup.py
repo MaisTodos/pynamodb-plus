@@ -16,7 +16,7 @@ setup(
     zip_safe=False,
     keywords="python pynamodb plus",
     license="MIT License",
-    install_requires=["pynamodb>=4.3.0"],
+    install_requires=["pynamodb>=4.0.0"],
     python_requires=">=3.7",
     classifiers=[
         "Development Status :: 1 - Planning",
