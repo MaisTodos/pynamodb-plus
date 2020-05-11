@@ -10,7 +10,7 @@ class TimestampAttribute(Attribute):
     PynamoDB attribute for timestamp in microseconds.
 
     >>> class MyModel(Model):
-    >>>   timestamp = TimestampAttribute(default_for_new=lambda: datetime.utcnow())
+    >>>   timestamp = TimestampAttribute(default_for_new=datetime.utcnow)
     """
 
     attr_type = STRING
