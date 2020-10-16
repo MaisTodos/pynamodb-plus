@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Any
 
-from pynamodb.attributes import Attribute
+from pynamodb.attributes import Attribute, UnicodeAttribute
 from pynamodb.constants import STRING
 
 
@@ -27,3 +27,16 @@ class TimestampAttribute(Attribute):
             raise TypeError(f"Invalid type, datetime expected: '{type(value)}'")
         serialized_value = str(int(datetime.timestamp(value) * self._multiplier))
         return super().__set__(instance, serialized_value)
+
+
+class UnicodeChoiceAttribute(UnicodeAttribute):
+    choices = []
+
+    def __init__(self, choices, **kwargs) -> None:
+        self.choices = choices
+        super().__init__(**kwargs)
+
+    def __set__(self, instance, value) -> None:
+        if value not in self.choices:
+            raise ValueError(f"Invalid choice: '{value}'")  # pragma: no cover
+        return super().__set__(instance, value)
