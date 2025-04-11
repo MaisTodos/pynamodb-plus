@@ -17,15 +17,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; else echo "requirements.txt not found, skipping dependency installation"; fi
       - name: Cache SonarQube packages
         uses: actions/cache@v3
         with:
@@ -63,5 +54,4 @@ jobs:
             -Dsonar.sources=. \
             -Dsonar.host.url=$SONAR_HOST_URL \
             -Dsonar.token=$SONAR_TOKEN \
-            -Dsonar.scm.provider=git \
-            -Dsonar.python.version=3
+            -Dsonar.scm.provider=git
